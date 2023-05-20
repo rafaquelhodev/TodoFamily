@@ -1,9 +1,9 @@
-defmodule PetalBoilerplate.MixProject do
+defmodule TodoFamily.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :petal_boilerplate,
+      app: :todo_family,
       version: "0.1.0",
       elixir: "~> 1.14",
       elixirc_paths: elixirc_paths(Mix.env()),
@@ -18,7 +18,7 @@ defmodule PetalBoilerplate.MixProject do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {PetalBoilerplate.Application, []},
+      mod: {TodoFamily.Application, []},
       extra_applications: [:logger, :runtime_tools]
     ]
   end
@@ -51,8 +51,7 @@ defmodule PetalBoilerplate.MixProject do
       {:gettext, "~> 0.20"},
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
-      {:petal_components, "~> 1.0"},
-      {:rename_project, "~> 0.1.0", only: :dev}
+      {:petal_components, "~> 1.0"}
     ]
   end
 

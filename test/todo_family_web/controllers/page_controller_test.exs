@@ -1,5 +1,5 @@
-defmodule PetalBoilerplateWeb.PageControllerTest do
-  use PetalBoilerplateWeb.ConnCase
+defmodule TodoFamilyWeb.PageControllerTest do
+  use TodoFamilyWeb.ConnCase
 
   test "GET /", %{conn: conn} do
     conn = get(conn, ~p"/")

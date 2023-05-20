@@ -1,4 +1,4 @@
-defmodule PetalBoilerplateWeb.CoreComponents do
+defmodule TodoFamilyWeb.CoreComponents do
   @moduledoc """
   Provides core UI components.
 
@@ -12,7 +12,7 @@ defmodule PetalBoilerplateWeb.CoreComponents do
   use Phoenix.Component
 
   alias Phoenix.LiveView.JS
-  import PetalBoilerplateWeb.Gettext
+  import TodoFamilyWeb.Gettext
 
   @doc """
   Renders a modal.
@@ -744,9 +744,9 @@ defmodule PetalBoilerplateWeb.CoreComponents do
     # should be written to the errors.po file. The :count option is
     # set by Ecto and indicates we should also apply plural rules.
     if count = opts[:count] do
-      Gettext.dngettext(PetalBoilerplateWeb.Gettext, "errors", msg, msg, count, opts)
+      Gettext.dngettext(TodoFamilyWeb.Gettext, "errors", msg, msg, count, opts)
     else
-      Gettext.dgettext(PetalBoilerplateWeb.Gettext, "errors", msg, opts)
+      Gettext.dgettext(TodoFamilyWeb.Gettext, "errors", msg, opts)
     end
   end
 

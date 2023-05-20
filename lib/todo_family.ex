@@ -1,6 +1,6 @@
-defmodule PetalBoilerplate do
+defmodule TodoFamily do
   @moduledoc """
-  PetalBoilerplate keeps the contexts that define your domain
+  TodoFamily keeps the contexts that define your domain
   and business logic.
 
   Contexts are also responsible for managing your data, regardless
