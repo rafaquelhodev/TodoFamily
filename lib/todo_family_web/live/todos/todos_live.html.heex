@@ -1,4 +1,9 @@
 <.container max_width="md" class="mx-auto my-20">
+  <.form :let={f} as={:user} for={@changeset} phx-submit="save">
+    <.form_field type="text_input" form={f} field={:description} />
+
+    <.button type="submit" label="Submit" />
+  </.form>
   <.container max_width="md" class="mx-auto my-20">
     <h1>TODO</h1>
     <div class="container">
@@ -12,7 +17,7 @@
             phx-value-uuid={uuid}
             checked={todo.done}
           />
-          <label for="scales"><%= todo.text %></label>
+          <label for="scales"><%= todo.description %></label>
         </div>
       <% end %>
     </div>
