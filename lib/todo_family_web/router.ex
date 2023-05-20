@@ -23,6 +23,8 @@ defmodule TodoFamilyWeb.Router do
     live "/live/modal/:size", PageLive, :modal
     live "/live/slide_over/:origin", PageLive, :slide_over
     live "/live/pagination/:page", PageLive, :pagination
+
+    live "/todos", Todos.TodosLive, :index
   end
 
   # Other scopes may use custom stacks.
