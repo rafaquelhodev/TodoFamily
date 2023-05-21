@@ -2,9 +2,9 @@ defmodule TodoFamily.Lists.List do
   use Ecto.Schema
   import Ecto.Changeset
 
+  @primary_key {:id, :binary_id, autogenerate: true}
   schema "lists" do
     field :name, :string
-    field :uuid, Ecto.UUID, read_after_writes: true
 
     has_many :todos, TodoFamily.Todos.Todo
 
@@ -12,9 +12,9 @@ defmodule TodoFamily.Lists.List do
   end
 
   @doc false
-  def changeset(lists, attrs) do
-    lists
-    |> cast(attrs, [:uuid, :name])
+  def changeset(list, attrs) do
+    list
+    |> cast(attrs, [:name])
     |> cast_assoc(:todos)
     |> validate_required([:name])
   end
