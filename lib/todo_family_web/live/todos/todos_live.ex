@@ -31,8 +31,6 @@ defmodule TodoFamilyWeb.Todos.TodosLive do
     if is_nil(socket.assigns.list_id) do
       {:ok, list} = create_list(description)
 
-      IO.inspect(list, label: "list")
-
       socket = assign(socket, list_id: list.id)
 
       {:noreply,
@@ -58,10 +56,11 @@ defmodule TodoFamilyWeb.Todos.TodosLive do
         %{"id" => id},
         socket = %{assigns: %{todos: todos}}
       ) do
-    todos =
-      Map.update(todos, id, nil, fn todo ->
-        Map.put(todo, :done, !todo.done)
-      end)
+    todo = Map.get(todos, id)
+
+    {:ok, new_todo} = Todos.update_done(todo, !todo.done)
+
+    todos = Map.put(todos, id, new_todo)
 
     {:noreply,
      assign(socket,
@@ -77,7 +76,7 @@ defmodule TodoFamilyWeb.Todos.TodosLive do
 
   defp parse_todos(todos, todos_parsed \\ %{}) do
     Enum.reduce(todos, todos_parsed, fn todo, acc ->
-      Map.put(acc, todo.id, Map.take(todo, [:done, :description]))
+      Map.put(acc, todo.id, todo)
     end)
   end
 

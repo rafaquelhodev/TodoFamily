@@ -8,4 +8,10 @@ defmodule TodoFamily.Todos do
     |> Repo.insert()
     |> IO.inspect()
   end
+
+  def update_done(todo, new_done) do
+    todo
+    |> Ecto.Changeset.change(%{done: new_done})
+    |> Repo.update()
+  end
 end
