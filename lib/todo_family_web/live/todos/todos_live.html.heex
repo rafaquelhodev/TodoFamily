@@ -1,11 +1,13 @@
 <.container max_width="md" class="mx-auto my-20">
+  <h2 class="pc-h2 pc-heading--color pc-heading--margin">Add new TODO</h2>
+
   <.form :let={f} as={:user} for={@changeset} phx-submit="save">
     <.form_field type="text_input" form={f} field={:description} />
 
     <.button type="submit" label="Submit" />
   </.form>
   <.container max_width="md" class="mx-auto my-20">
-    <h1>TODO</h1>
+    <h2 class="pc-h2 pc-heading--color pc-heading--margin">TODOS</h2>
     <div class="container">
       <%= for {id, todo} <- @todos do %>
         <div>
@@ -16,8 +18,9 @@
             phx-click="toggle_checkbox"
             phx-value-id={id}
             checked={todo.done}
+            class="pc-checkbox"
           />
-          <label for="scales"><%= todo.description %></label>
+          <label class="pc-checkbox-label" for="scales"><%= todo.description %></label>
         </div>
       <% end %>
     </div>

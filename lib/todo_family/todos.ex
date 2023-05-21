@@ -6,7 +6,6 @@ defmodule TodoFamily.Todos do
     %Todo{}
     |> Todo.changeset(attrs)
     |> Repo.insert()
-    |> IO.inspect()
   end
 
   def update_done(todo, new_done) do
