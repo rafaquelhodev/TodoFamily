@@ -7,14 +7,14 @@
   <.container max_width="md" class="mx-auto my-20">
     <h1>TODO</h1>
     <div class="container">
-      <%= for {uuid, todo} <- @todos do %>
+      <%= for {id, todo} <- @todos do %>
         <div>
           <input
             type="checkbox"
-            id={uuid}
+            id={id}
             name="scales"
             phx-click="toggle_checkbox"
-            phx-value-uuid={uuid}
+            phx-value-id={id}
             checked={todo.done}
           />
           <label for="scales"><%= todo.description %></label>
